@@ -41,8 +41,41 @@ body {
 }
 
 @media (max-width: 768px) {
+    .book {
+        width: 95vw;
+        height: 85vh;
+    }
     .book.open {
-        transform: translateX(10%) translateZ(50px);
+        transform: translateX(0) translateZ(0);
+    }
+    .title-3d {
+        font-size: 3.5rem;
+    }
+    .face {
+        padding: 20px;
+    }
+    .face-back p {
+        font-size: 1.2rem !important;
+    }
+    .heart-pulse {
+        font-size: 3.5rem;
+    }
+    .letter-content {
+        font-size: 0.85rem;
+    }
+    .letter-content .signature {
+        font-size: 1.4rem;
+        margin-top: 15px;
+        margin-bottom: 10px;
+    }
+    .love-letter {
+        font-size: 1.8rem;
+    }
+    .heart-icon {
+        font-size: 1.8rem;
+    }
+    .cover-page.open {
+        transform: rotateY(-180deg);
     }
 }
 
