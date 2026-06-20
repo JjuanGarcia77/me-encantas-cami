@@ -82,4 +82,52 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         });
     }
+
+    // Lógica para Stitch y las flores
+    const stitchContainer = document.getElementById('stitch-container');
+    const flowers = ['🌸', '🌺', '🌻', '🌼', '🌷'];
+
+    stitchContainer.addEventListener('click', (e) => {
+        e.stopPropagation(); // Evitar que el clic afecte otros elementos
+
+        // Crear multiples flores por cada clic
+        for (let i = 0; i < 12; i++) {
+            createFlower();
+        }
+    });
+
+    function createFlower() {
+        const flower = document.createElement('div');
+        flower.classList.add('flower');
+        flower.innerText = flowers[Math.floor(Math.random() * flowers.length)];
+        
+        // Posición inicial basada en Stitch
+        const rect = stitchContainer.getBoundingClientRect();
+        const startX = rect.left + rect.width / 2;
+        const startY = rect.top + rect.height / 3; // un poco más arriba del centro
+        
+        flower.style.left = startX + 'px';
+        flower.style.top = startY + 'px';
+        document.body.appendChild(flower);
+
+        // Animar flor volando en una dirección aleatoria
+        const angle = Math.random() * Math.PI * 2;
+        const velocity = 100 + Math.random() * 200;
+        const tx = Math.cos(angle) * velocity;
+        const ty = Math.sin(angle) * velocity - 150; // gravedad/vuelo hacia arriba
+
+        anime({
+            targets: flower,
+            translateX: tx,
+            translateY: ty,
+            rotate: Math.random() * 720 - 360,
+            scale: [0, 1.5, 0.8],
+            opacity: [1, 0],
+            duration: 1500 + Math.random() * 1000,
+            easing: 'easeOutCirc',
+            complete: () => {
+                flower.remove();
+            }
+        });
+    }
 });
