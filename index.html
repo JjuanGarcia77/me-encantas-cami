@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Para Cami</title>
+    <link rel="stylesheet" href="style.css">
+    <!-- Google Fonts para darle un toque hermoso y premium -->
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600;700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="scene">
+        <div class="book" id="book">
+            <!-- Portada de la tarjeta (gira en 3D) -->
+            <div class="page cover-page" id="cover">
+                <!-- Cara Frontal de la Portada -->
+                <div class="face face-front">
+                    <h1 class="title-3d">Para Cami</h1>
+                    <p class="click-hint">(Toca para abrir ❤️)</p>
+                    <div class="particles" id="particles-front"></div>
+                </div>
+                <!-- Cara Trasera de la Portada (Lado izquierdo abierto) -->
+                <div class="face face-back">
+                    <div class="photo-placeholder">
+                        <div class="heart-pulse">💖</div>
+                        <p style="margin-top:20px; font-family:'Dancing Script', cursive; font-size:1.8rem; color:#66a6ff; text-align:center;">
+                            Eres la casualidad más bonita
+                        </p>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Interior de la tarjeta (Página Derecha - La Carta) -->
+            <div class="page back-page">
+                <div class="letter-content">
+                    <p>Hola mi vida hermosa,</p>
+                    
+                    <p>Espero que hayas podido descansar bien anoche, que sé que estabas cansadita, cielo. Te escribo esta carta de esta manera porque quiero que sepas que, sin importar cualquier discusión o situación, estaré ahí. Eres mi niña hermosa, la que quiero consentir, cuidar, proteger y a la que le deseo todo el éxito de este mundo. Sé que no soy perfecto, sé que a lo mejor a veces soy egoísta o sensible jajajaja, pero no lo hago por dependencia ni por inseguridad, sino porque hay días en que con tan solo verte unos momentos me basta (aunque si son más, mejor, ¿no? jajajaja).</p>
+                    
+                    <p>Pero quiero que sepas que lo que diré, lo diré con todo mi corazón, y es que eres increíble, maravillosa, una mujer estupenda y una niña que solo quiero cuidar y tener para abrazar. Y sobre todo, magnífica, llena de muchas cualidades las cuales te hacen ser única. Eres una mujer luchadora, inteligente, y me siento orgulloso de ti. Qué increíble es decir "ella es mi princesa", a la cual amo con toda mi alma. Y quiero que sepas, cielo, que puedes contar conmigo para todo; nunca te voy a dejar sola o darte la espalda, siempre voy a cuidarte.</p>
+                    
+                    <p>Por algo nos encontramos, por algo coincidimos, por algo es que entre tantas personas decidí acercarme a ti. Por algo es que mis ojos solo brillan y te buscan a ti, por algo es que mis latidos te nombran y mi piel te busca, y sobre todo, que mi lealtad te pertenece. Soy vulnerable solo contigo, y es porque quiero que tengamos algo hermoso, claro, si también lo deseas conmigo. Y no lo digo porque sí, sino porque eres mi todo.</p>
+                    
+                    <p>Y no te lo he dicho, pero me gustas porque no eres solo atracción física, eres atracción mental y sentimental. Sin pensarlo te convertiste en esa personita que con un mensaje o un audio me alegra el día y me emociono apenas veo que eres tú.</p>
+                    
+                    <p class="signature">Att: Juan David (tu cielo y tu corazoncito)</p>
+                    
+                    <!-- Contenedor para la animación final de I LOVE YOU -->
+                    <div class="animated-love" id="animated-love">
+                        <span class="love-letter">I</span>
+                        <span class="love-letter space">&nbsp;</span>
+                        <span class="love-letter">L</span>
+                        <span class="love-letter">O</span>
+                        <span class="love-letter">V</span>
+                        <span class="love-letter">E</span>
+                        <span class="love-letter space">&nbsp;</span>
+                        <span class="love-letter">Y</span>
+                        <span class="love-letter">O</span>
+                        <span class="love-letter">U</span>
+                        <span class="heart-icon">❤️</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Librería Anime.js para las animaciones 3D -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>

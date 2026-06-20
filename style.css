@@ -1,0 +1,227 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    /* Fondo con un degradado azul claro muy premium y moderno */
+    background: radial-gradient(circle at 50% 50%, #e0f2fe 0%, #bae6fd 50%, #7dd3fc 100%);
+    font-family: 'Poppins', sans-serif;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    perspective: 2000px; /* Perspectiva global para el efecto 3D */
+}
+
+.scene {
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    perspective: 1500px;
+}
+
+.book {
+    position: relative;
+    width: 90vw;
+    max-width: 450px;
+    height: 85vh;
+    max-height: 750px;
+    transform-style: preserve-3d;
+    transition: transform 1.2s cubic-bezier(0.645, 0.045, 0.355, 1);
+}
+
+/* Efecto de mover el libro cuando se abre (para centrar ambas páginas en pantallas grandes) */
+.book.open {
+    transform: translateX(25%) translateZ(100px);
+}
+
+@media (max-width: 768px) {
+    .book.open {
+        transform: translateX(10%) translateZ(50px);
+    }
+}
+
+.page {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    transform-style: preserve-3d;
+    transform-origin: left center;
+    transition: transform 1.5s cubic-bezier(0.645, 0.045, 0.355, 1);
+    border-radius: 10px 20px 20px 10px;
+    box-shadow: 10px 10px 30px rgba(0,0,0,0.15);
+}
+
+.cover-page {
+    z-index: 5;
+    cursor: pointer;
+}
+
+/* Abrir la carta rotándola sobre el eje Y */
+.cover-page.open {
+    transform: rotateY(-160deg);
+}
+
+.face {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+    border-radius: 10px 20px 20px 10px;
+    padding: 30px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.face-front {
+    /* Color azul claro para la portada, usando glassmorphism */
+    background: linear-gradient(135deg, rgba(125, 211, 252, 0.9) 0%, rgba(56, 189, 248, 0.95) 100%);
+    backdrop-filter: blur(10px);
+    color: white;
+    z-index: 2;
+    border: 1px solid rgba(255, 255, 255, 0.5);
+    box-shadow: inset 0 0 20px rgba(255,255,255,0.4), 5px 5px 20px rgba(0,0,0,0.1);
+}
+
+.face-back {
+    /* El lado interior izquierdo */
+    background: #f8fafc;
+    transform: rotateY(180deg);
+    border-radius: 20px 10px 10px 20px;
+    border: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+.back-page {
+    z-index: 1;
+    background: #ffffff;
+    border-radius: 10px 20px 20px 10px;
+    padding: 30px;
+    border: 1px solid rgba(0, 0, 0, 0.05);
+    /* Sombra interior para darle profundidad de libro */
+    box-shadow: inset 10px 0 20px rgba(0,0,0,0.04);
+}
+
+.title-3d {
+    font-family: 'Dancing Script', cursive;
+    font-size: 5.5rem;
+    color: #ffffff;
+    /* Efecto 3D de sombra en el texto */
+    text-shadow: 2px 2px 0px #0284c7, 
+                 4px 4px 0px rgba(0,0,0,0.15);
+    margin-bottom: 20px;
+    transform: translateZ(50px); /* Hace que el texto salte hacia adelante en 3D */
+}
+
+.click-hint {
+    font-size: 1.1rem;
+    opacity: 0.9;
+    font-weight: 500;
+    transform: translateZ(30px);
+    animation: pulse 1.5s infinite;
+}
+
+@keyframes pulse {
+    0% { transform: translateZ(30px) scale(1); }
+    50% { transform: translateZ(30px) scale(1.05); }
+    100% { transform: translateZ(30px) scale(1); }
+}
+
+.letter-content {
+    font-size: 0.95rem;
+    line-height: 1.7;
+    color: #334155;
+    text-align: justify;
+    height: 100%;
+    overflow-y: auto;
+    padding-right: 15px;
+}
+
+.letter-content p {
+    margin-bottom: 18px;
+}
+
+.letter-content .signature {
+    text-align: right;
+    font-family: 'Dancing Script', cursive;
+    font-size: 1.8rem;
+    color: #0284c7;
+    margin-top: 30px;
+    margin-bottom: 20px;
+    font-weight: 700;
+}
+
+/* Scrollbar personalizado y suave */
+.letter-content::-webkit-scrollbar {
+    width: 6px;
+}
+.letter-content::-webkit-scrollbar-track {
+    background: #f1f5f9;
+    border-radius: 3px;
+}
+.letter-content::-webkit-scrollbar-thumb {
+    background: #7dd3fc;
+    border-radius: 3px;
+}
+.letter-content::-webkit-scrollbar-thumb:hover {
+    background: #38bdf8;
+}
+
+.photo-placeholder {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+}
+
+.heart-pulse {
+    font-size: 5rem;
+    animation: beat 1s infinite alternate;
+}
+
+@keyframes beat {
+    to { transform: scale(1.2); }
+}
+
+/* Estilos de la Animación de I LOVE YOU */
+.animated-love {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    margin-top: 40px;
+    padding-bottom: 20px;
+    perspective: 600px;
+}
+
+.love-letter {
+    display: inline-block;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 800;
+    font-size: 2.5rem;
+    color: #e11d48; /* Rojo vibrante */
+    opacity: 0;
+    transform-origin: 50% 50% -30px;
+    text-shadow: 2px 2px 5px rgba(225, 29, 72, 0.3);
+}
+
+.love-letter.space {
+    width: 15px;
+}
+
+.heart-icon {
+    display: inline-block;
+    font-size: 2.5rem;
+    opacity: 0;
+    margin-left: 15px;
+    filter: drop-shadow(0px 0px 10px rgba(225, 29, 72, 0.5));
+}
