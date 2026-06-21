@@ -90,6 +90,11 @@ document.addEventListener('DOMContentLoaded', () => {
     stitchContainer.addEventListener('click', (e) => {
         e.stopPropagation(); // Evitar que el clic afecte otros elementos
 
+        // Cambiar la imagen de Stitch a una con corazón y sonrisa
+        const stitchImg = document.getElementById('stitch-character');
+        // Usamos la imagen local que acabo de descargar para que no haya problemas de que se borre o bloquee
+        stitchImg.src = 'stitch-heart.png';
+
         // Crear multiples flores por cada clic
         for (let i = 0; i < 12; i++) {
             createFlower();
